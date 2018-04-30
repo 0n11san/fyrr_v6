@@ -1,0 +1,24 @@
+.container{
+    grid-column-start: col4;
+    grid-column-end: col18;
+    grid-row-start: row5;
+    grid-row-end: row11;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+}
+
+@media screen and (min-width: 1000px) {
+    .container {
+        grid-column-start: col6;
+        grid-column-end: col16;
+        grid-row-start: row5;
+        grid-row-end: row11;
+    }
+}
+
+@media screen and (max-height: 670px) {
+    .container {
+        grid-row-start: row3;
+    }
+}

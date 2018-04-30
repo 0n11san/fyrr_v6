@@ -1,0 +1,29 @@
+{
+  "name": "fyrr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "concurrently": "^3.5.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.0",
+    "moment": "^2.20.1",
+    "mongoose": "^4.13.9",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.17.3",
+    "path": "^0.12.7",
+    "serve-favicon": "^2.4.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "server": "node server.js",
+    "client": "node scripts/start-client.js",
+    "build": "node scripts/build.js",
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "installDeps": "yarn install && cd client && yarn install"
+  }
+}

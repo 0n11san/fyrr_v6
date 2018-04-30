@@ -1,0 +1,33 @@
+audio {
+    display: none;
+}
+
+.btn-space {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}
+
+hr {
+    margin-top: -15px;
+}
+
+
+@media screen and (max-width: 1100px) {
+    .btn-button {
+        padding: 7px;
+    }
+}
+
+@media screen and (max-width: 1005px) {
+    .btn-button {
+        padding: 8px;
+    }
+}
+
+@media screen and (max-width: 781px) {
+    .btn-button {
+        padding: 9px;
+    }
+}

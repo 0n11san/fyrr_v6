@@ -1,0 +1,36 @@
+.input {
+    width: 70%;
+    max-width: 300px;
+    padding: 5px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid;
+    border-color: rgba(0,100,200,0.25);
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    background-color: rgb(225,247,255);
+}
+
+.input:focus {
+    border: 3px solid;
+    border-color: #5b8bcc;
+    background-color: rgba(255,255,255,1);
+}
+
+.error {
+    color: red;
+    font-style: italic;
+    margin: 0;
+}
+
+.btn-button {
+    background-color: #CDE3EB;
+    color: #143A52;
+}
+
+@media screen and (max-height: 500px) {
+    .input {
+        margin: 1px;
+    }
+}

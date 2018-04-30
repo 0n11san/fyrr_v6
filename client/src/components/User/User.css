@@ -1,0 +1,71 @@
+#good {
+    color: white;
+}
+
+#neutral {
+    color: white;
+}
+
+#bad {
+    color: white;
+}
+
+.moodbtn {
+    margin: 30px;
+}
+
+.moodbtn:hover {
+    font-size: 700%;
+    margin: -10.5px;
+    padding: 0 24px 0 24px;
+    cursor: pointer;
+}
+
+.btn-choices {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btn-button {
+    background-color: #CDE3EB;
+    color: #143A52;
+}
+
+@media screen and (max-width: 700px) {
+    .moodbtn {
+        font-size: 350%;
+        margin: 20px;
+    }
+
+    .moodbtn:hover {
+        font-size: 400%;
+        margin: -1px;
+        padding: 0 17px 0 17px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .moodbtn {
+        font-size: 250%;
+        margin: 15px;
+    }
+
+    .moodbtn:hover {
+        font-size: 300%;
+        margin: -6px;
+        padding: 0 17px 0 17px;
+    }
+}
+
+@media screen and (max-width: 361px) {
+    .moodbtn {
+        font-size: 247%;
+        margin: 15px;
+    }
+    
+    .moodbtn:hover {
+        font-size: 300%;
+        margin: -6px;
+        padding: 0 17px 0 17px;
+    }
+}
