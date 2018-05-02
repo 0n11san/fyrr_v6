@@ -7,10 +7,13 @@ const logger = require("morgan");
 const db = require("./models");
 const apiRoutes = require('./routes/apiRoutes')
 const cookieParser = require('cookie-parser');
-
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: false }));
+const Polygon = require('./models/polygonModel'); //created model loading here
+const routes = require('./routes/polygonRoutes'); //importing route
+routes(app); //register the route
+
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(logger("dev"));
@@ -31,12 +34,14 @@ if (process.env.MONGODB_URI) {
     mongoose.connect(process.env.MONGODB_URI);
 }
 else {
-    mongoose.connect("mongodb://localhost/fyrrDB3", {
+    mongoose.connect("mongodb://localhost/fyrrDB4", {
         useMongoClient: true
     });
 }
 
 
-app.listen(process.env.PORT || 3001);
+app.listen(process.env.PORT || 3002);
 
 module.exports = app;
+
+// console.log('todo list RESTful API server started on: ' + port);
