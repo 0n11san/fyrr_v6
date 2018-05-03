@@ -65,9 +65,7 @@ const Map = compose(
         drawingControlOptions: {
           position: window.google.maps.ControlPosition.TOP_CENTER,
           drawingModes: [
-            window.google.maps.drawing.OverlayType.MARKER,
-            window.google.maps.drawing.OverlayType.POLYGON,
-            window.google.maps.drawing.OverlayType.POLYLINE,
+            window.google.maps.drawing.OverlayType.POLYGON
 
           ],
         }
