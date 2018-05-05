@@ -6,6 +6,7 @@ import Header from '../Header/Header.js';
 import Footer from '../Footer/Footer.js';
 import './Found.css';
 import Map from '../Map'
+// import Search from '../Search'
 
 // creates Meditation component to render to the page
 class Found extends Component {
@@ -19,6 +20,7 @@ class Found extends Component {
                     <div className="jumbotron">
                         <h1>Share a Rec Resource You Found</h1>
                         <hr className="hr"/>
+                        {/* <Search/> */}
                         <Map/>
                     </div>
                 </Container>

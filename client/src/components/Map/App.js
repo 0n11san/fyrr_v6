@@ -18,13 +18,15 @@ class App extends Component {
        .then(res => {
         this.setState({ polygons: res.data})
        });
+
+
    }
 
   render() {
     return (
       <div className="App">
         <Map
-          isMarkerShown
+          polygons={this.state.polygons}
           googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1SJ3HV5ZGZkOfwO96Hku1mK2rl3sT_5I&libraries=geometry,drawing,places"
           loadingElement={<div style={{ height: `100%` }} />}
           containerElement={<div style={{ height: `400px` }} />}

@@ -1,8 +1,9 @@
-import React from "react"
-import axios from "axios"
-import { compose, withProps } from "recompose"
-import { withScriptjs, withGoogleMap, GoogleMap, InfoWindow, Polygon, Marker } from "react-google-maps"
+import React from "react";
+import axios from "axios";
+import { compose, withProps, lifecycle } from "recompose";
+import { withScriptjs, withGoogleMap, GoogleMap, InfoWindow, Polygon, Marker } from "react-google-maps";
 const { DrawingManager } = require("react-google-maps/lib/components/drawing/DrawingManager");
+const _ = require("lodash");
 
 const Map = compose(
   withScriptjs,
@@ -46,8 +47,6 @@ const Map = compose(
         //database.ref('userInfo/clustermarkers').push(markers);
       }
 
-
-
       console.log(marker)
     }
   }))(props =>
@@ -56,6 +55,7 @@ const Map = compose(
     defaultZoom={15}
     defaultCenter={{ lat: 38.889931, lng:-77.009003	  }}
     onDblClick={(e) => {console.log(e.latLng.lat(), e.latLng.lng())}}
+    onBoundsChanged={props.onBoundsChanged}
   >
 
     <DrawingManager
@@ -76,6 +76,22 @@ const Map = compose(
       onPolylineComplete={props.handlePolylineComplete}
 
     />
+    {props.polygons.map((polygon, index) => {
+        if (polygon.coordinates.length < 3) {
+          return null
+        }
+        const paths = polygon.coordinates.map((coordinate) => {
+          const coordinateArray = coordinate.split(",")
+          const coordinateObject = {
+            lat: parseFloat(coordinateArray[0]),
+            lng: parseFloat(coordinateArray[1])
+          }
+          return coordinateObject
+        })
+        return <Polygon paths={paths} />
+      })
+    }
+
   </GoogleMap>
 )
 
