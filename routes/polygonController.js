@@ -1,6 +1,5 @@
 'use strict';
 
-
 var mongoose = require('mongoose'),
   Polygon = mongoose.model('Polygon');
 
@@ -13,10 +12,9 @@ exports.list_all_polygon = function(req, res) {
   });
 };
 
-
-
-
 exports.create_a_polygon = function(req, res) {
+  console.log('create new')
+  console.log(req.body)
   var new_polygon = new Polygon(req.body);
   new_polygon.save(function(err, polygon) {
     if (err)

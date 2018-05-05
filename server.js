@@ -11,18 +11,21 @@ const app = express();
 
 const Polygon = require('./models/polygonModel'); //created model loading here
 const routes = require('./routes/polygonRoutes'); //importing route
-routes(app); //register the route
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(logger("dev"));
 
+routes(app); //register the route, dont call the routes until we apply the body-parser...
+
 app.use('/api', apiRoutes);
+// app.use('/api', routes);
 
 app.use(express.static('client/build'));
 
-app.use('/*', function(req, res) {
+app.use('/', function(req, res) {
     res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
 
