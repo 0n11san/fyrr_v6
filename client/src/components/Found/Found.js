@@ -14,18 +14,26 @@ class Found extends Component {
     render() {
 
         return (
-            <Wrapper>
+          <div class="content">
+            <Wrapper id="modal-container">
                 <Header/>
                 <Container>
                     <div className="jumbotron">
                         <h1>Share a Rec Resource You Found</h1>
                         <hr className="hr"/>
                         {/* <Search/> */}
+
+                        <div class="modalButton">
+                            <div id="two" class="buttonReveal">
+                            </div>
+                        </div>
+
                         <Map/>
                     </div>
                 </Container>
                 <Footer/>
             </Wrapper>
+          </div>
         )
     }
 }

@@ -1,9 +1,13 @@
 import React from "react";
 import axios from "axios";
-import { compose, withProps, lifecycle } from "recompose";
+import { compose, withProps, lifecycle, withHandlers } from "recompose";
 import { withScriptjs, withGoogleMap, GoogleMap, InfoWindow, Polygon, Marker } from "react-google-maps";
 const { DrawingManager } = require("react-google-maps/lib/components/drawing/DrawingManager");
 const _ = require("lodash");
+const fetch = require("isomorphic-fetch");
+const { MarkerClusterer } = require("react-google-maps/lib/components/addons/MarkerClusterer");
+
+
 
 const Map = compose(
   withScriptjs,
@@ -49,7 +53,10 @@ const Map = compose(
 
       console.log(marker)
     }
-  }))(props =>
+  })
+)
+
+(props =>
 
   <GoogleMap
     defaultZoom={15}
@@ -58,24 +65,23 @@ const Map = compose(
     onBoundsChanged={props.onBoundsChanged}
   >
 
+
     <DrawingManager
-  defaultDrawingMode={null}
-      defaultOptions={{
-        drawingControl: true,
-        drawingControlOptions: {
-          position: window.google.maps.ControlPosition.TOP_CENTER,
-          drawingModes: [
-            window.google.maps.drawing.OverlayType.POLYGON
-
-          ],
-        }
-
+      defaultDrawingMode={null}
+          defaultOptions={{
+            drawingControl: true,
+            drawingControlOptions: {
+              position: window.google.maps.ControlPosition.TOP_CENTER,
+              drawingModes: [
+                window.google.maps.drawing.OverlayType.POLYGON
+              ],
+            }
       }}
       onPolygonComplete={props.handlePolygonComplete}
       onMarkerComplete={props.handleMarkerComplete}
       onPolylineComplete={props.handlePolylineComplete}
-
     />
+
     {props.polygons.map((polygon, index) => {
         if (polygon.coordinates.length < 3) {
           return null
@@ -92,6 +98,20 @@ const Map = compose(
       })
     }
 
+
+    <MarkerClusterer
+        onClick={props.onMarkerClustererClick}
+        averageCenter
+        enableRetinaIcons
+        gridSize={60}
+      >
+        {props.markers.map(marker => (
+          <Marker
+            key={marker.photo_id}
+            position={{ lat: marker.latitude, lng: marker.longitude }}
+          />
+        ))}
+      </MarkerClusterer>
   </GoogleMap>
 )
 
