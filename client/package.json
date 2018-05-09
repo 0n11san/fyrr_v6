@@ -4,23 +4,24 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
     "express": "^4.16.3",
     "firebase": "^4.13.1",
+    "jsonwebtoken": "^8.1.0",
     "lodash": "^4.17.5",
+    "moment": "^2.20.1",
     "mongoose": "^5.0.16",
+    "path": "^0.12.7",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "react-google-maps": "^9.4.5",
-    "recompose": "^0.27.0",
-    "react-scripts": "1.1.4",
-    "bcrypt": "^1.0.3",
-    "cookie-parser": "^1.4.3",
-    "jsonwebtoken": "^8.1.0",
-    "moment": "^2.20.1",
-    "path": "^0.12.7",
     "react-google-charts": "^1.5.5",
-    "react-router-dom": "^4.2.2"
+    "react-google-maps": "^9.4.5",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.4",
+    "reactstrap": "^6.0.1",
+    "recompose": "^0.27.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -29,7 +30,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-      "babel-cli": "^6.26.0"
-    },
+    "babel-cli": "^6.26.0"
+  },
   "proxy": "http://localhost:3002"
 }

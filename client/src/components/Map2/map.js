@@ -2,11 +2,12 @@ import React from "react";
 import axios from "axios";
 import { compose, withProps, lifecycle, withHandlers } from "recompose";
 import { withScriptjs, withGoogleMap, GoogleMap, InfoWindow, Polygon, Marker } from "react-google-maps";
-import Data from './data.js';
 const { DrawingManager } = require("react-google-maps/lib/components/drawing/DrawingManager");
 const _ = require("lodash");
 const fetch = require("isomorphic-fetch");
 const { MarkerClusterer } = require("react-google-maps/lib/components/addons/MarkerClusterer");
+
+
 
 const Map = compose(
   withScriptjs,
@@ -21,17 +22,15 @@ const Map = compose(
                 var poly = polygon.getPath().getAt(i).toUrlValue(6);
                 polygonArray.push(poly);
             }
-            // database.ref('userInfo/polygonArray').push(polygonArray);
+            // database.ref('userInfo/coordinates').push(polygonArray);
               console.log(polygonArray);
-
-              Data.polygonArray=polygonArray;
-              console.log(Data);
-
             //console.log(polygon.getPath().getLength())
 
-            // axios.post('/polygon', {polygonArray:polygonArray})
-            //   .then( res => console.log(res))
-            //   .catch( err => console.log(err));
+            axios.post('/polygon', {coordinates:polygonArray})
+              .then( res => console.log(res))
+              .catch( err => console.log(err));
+
+
 
     },
 
@@ -84,10 +83,10 @@ const Map = compose(
     />
 
     {props.polygons.map((polygon, index) => {
-        if (polygon.polygonArray.length < 3) {
+        if (polygon.coordinates.length < 3) {
           return null
         }
-        const paths = polygon.polygonArray.map((coordinate) => {
+        const paths = polygon.coordinates.map((coordinate) => {
           const coordinateArray = coordinate.split(",")
           const coordinateObject = {
             lat: parseFloat(coordinateArray[0]),

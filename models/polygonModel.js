@@ -4,39 +4,35 @@ var Schema = mongoose.Schema;
 
 
 var polygonModel= new Schema({
-  location: {
-    // type: {type : String, required: true},
-    // coordinates: []
-    // coordinates : [Schema.Types.Mixed]
+  polygonType: {
+    type: [{
+      type: String,
+      enum: ['Dog Park', 'Tennis', 'Baseball Field', 'Basketball Court', 'Child Play Area', 'Other']
+    }],
+  default: ['']
   },
-  coordinates: []
-  // parkName: {
-  //   type: String,
-  //   required: 'Kindly enter the name of the Park'
-  // },
-  //
-  // date_created: {
-  //   type: Date,
-  //   default: Date.now
-  // },
-  //
-  // polygonType: {
-  //   type: [{
-  //     type: text,
-  //     enum: ['Dog Park', 'Tennis', 'Baseball Field', 'Basketball Court', 'Child Play Area', 'Other']
-  //   }],
-  // default: ['Other']
-  // },
-  //
-  // comments: {
-  //   type: String,
-  //   required: 'Kindly enter the name of the Park'
-  // },
-  //
-  // rating: {
-  //   type: number,
-  //   required: 'Kindly enter the name of the Park'
-  // }
+
+  Parkname: {
+    type: String,
+    required: 'Kindly enter the name of the Park'
+  },
+
+  polygonArray: [],
+
+  date_created: {
+    type: Date,
+    default: Date.now
+  },
+
+  Comments: {
+    type: String,
+    required: 'Kindly enter the name of the Park'
+  },
+
+  Rating: {
+    type: Number,
+    required: 'Kindly enter the name of the Park'
+  }
 
 });
 
