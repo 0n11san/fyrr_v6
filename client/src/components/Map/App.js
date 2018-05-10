@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Map from "./map";
 import Data from './data.js';
+import _ from "lodash";
 import qs from 'qs';
-// import ReactDOM from 'react-dom';
 import axios from 'axios';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
@@ -12,8 +12,10 @@ class App extends Component {
     super();
     this.state = {
       name: 'React',
+      bounds: null,
       modal: false,
       polygons: [],
+      polygonsCopy: [],
       markers:[],
       polygonType:"",
       Parkname : "",
@@ -27,7 +29,29 @@ class App extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.removePolygons =this.removePolygons.bind(this);
+    this.showPolygons=this.showPolygons.bind(this);
+
   }
+
+  removePolygons(event){
+    event.preventDefault();
+    console.log('hello22');
+    this.setState({
+    polygons:[]
+    })
+  }
+
+  showPolygons(event){
+    event.preventDefault();
+    console.log('hello11');
+    axios.get(`/polygon`)
+      .then(res => {
+       this.setState({ polygons: res.data})
+
+      });
+  }
+
 
   handleChange(event) {
     var {name, value} = event.target;
@@ -47,9 +71,6 @@ class App extends Component {
 
     console.log(Data)
 
-    // {"coordinates":polygonArray}
-
-
       var polygonArray=[];
       axios.post('/polygon', Data )
         .then( res => console.log(res))
@@ -63,11 +84,69 @@ class App extends Component {
      });
    }
 
+   componentWillMount() {
+     const refs = {}
+
+     this.setState({
+       bounds: null,
+       center: {
+         lat: 41.9, lng: -87.624
+       },
+       markers: [],
+       onMapMounted: ref => {
+         refs.map = ref;
+       },
+       onBoundsChanged: () => {
+         this.setState({
+           bounds: refs.map.getBounds(),
+           center: refs.map.getCenter(),
+         })
+       },
+       onSearchBoxMounted: ref => {
+         refs.searchBox = ref;
+       },
+       onPlacesChanged: () => {
+         const places = refs.searchBox.getPlaces();
+         const bounds = new window.google.maps.LatLngBounds();
+
+         places.forEach(place => {
+           if (place.geometry.viewport) {
+             bounds.union(place.geometry.viewport)
+           } else {
+             bounds.extend(place.geometry.location)
+           }
+         });
+         const nextMarkers = places.map(place => ({
+           position: place.geometry.location,
+         }));
+         const nextCenter = _.get(nextMarkers, '0.position', this.state.center);
+
+         this.setState({
+           center: nextCenter,
+           markers: nextMarkers,
+         });
+         // refs.map.fitBounds(bounds);
+       },
+     })
+   }
+
   componentDidMount() {
+
+    setTimeout(function(){
+      console.log(window.google.maps)
+    }, 3000)
+
+
      axios.get(`/polygon`)
        .then(res => {
         this.setState({ polygons: res.data})
+        this.setState({
+          PolygonsCopy:res.data
+        })
+
        });
+
+
 
 
        const url = [
@@ -84,6 +163,12 @@ class App extends Component {
       });
 
    }
+
+
+  //  componentDidUpdate(){
+  //    var myMap = document.querySelector('.myMap2');
+  //    console.log(myMap)
+  //  }
 
   render() {
     return (
@@ -109,14 +194,16 @@ class App extends Component {
 
           </Modal>
     </div>
+
+        <Button onClick={this.removePolygons} value="Remove DB Overlay"> remove </Button>
+        <Button onClick={this.showPolygons} value="Show DB Overlay"> remove </Button>
         <Map
           markers={this.state.markers}
           polygons={this.state.polygons}
           googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1SJ3HV5ZGZkOfwO96Hku1mK2rl3sT_5I&libraries=geometry,drawing,places"
           loadingElement={<div style={{ height: `100%` }} />}
           containerElement={<div style={{ height: `400px` }} />}
-          mapElement={<div style={{ height: `100%` }} />}
-
+          mapElement={<div className='myMap' style={{ height: `100%` }} />}
         />
 
       </div>

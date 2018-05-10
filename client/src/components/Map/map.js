@@ -7,6 +7,7 @@ const { DrawingManager } = require("react-google-maps/lib/components/drawing/Dra
 const _ = require("lodash");
 const fetch = require("isomorphic-fetch");
 const { MarkerClusterer } = require("react-google-maps/lib/components/addons/MarkerClusterer");
+const { SearchBox } = require("react-google-maps/lib/components/places/SearchBox");
 
 const Map = compose(
   withScriptjs,
@@ -20,7 +21,7 @@ const Map = compose(
             for (var i = 0; i < polyLength; i++) {
                 var poly = polygon.getPath().getAt(i).toUrlValue(6);
                 polygonArray.push(poly);
-            }
+                }
             // database.ref('userInfo/polygonArray').push(polygonArray);
               console.log(polygonArray);
 
@@ -60,12 +61,36 @@ const Map = compose(
 (props =>
 
   <GoogleMap
+    ref={props.onMapMounted}
     defaultZoom={15}
     defaultCenter={{ lat: 38.889931, lng:-77.009003	  }}
     onDblClick={(e) => {console.log(e.latLng.lat(), e.latLng.lng())}}
     onBoundsChanged={props.onBoundsChanged}
   >
-
+  <SearchBox
+    ref={props.onSearchBoxMounted}
+    bounds={props.bounds}
+    controlPosition={window.google.maps.ControlPosition.BOTTOM_LEFT}
+    onPlacesChanged={props.onPlacesChanged}
+  >
+    <input
+      type="text"
+      placeholder="Customized your placeholder"
+      style={{
+        boxSizing: `border-box`,
+        border: `1px solid transparent`,
+        width: `240px`,
+        height: `32px`,
+        marginTop: `27px`,
+        padding: `0 12px`,
+        borderRadius: `3px`,
+        boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
+        fontSize: `14px`,
+        outline: `none`,
+        textOverflow: `ellipses`,
+      }}
+    />
+  </SearchBox>
 
     <DrawingManager
       defaultDrawingMode={null}
