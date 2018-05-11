@@ -5,6 +5,7 @@ import _ from "lodash";
 import qs from 'qs';
 import axios from 'axios';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import './App.css';
 
 class App extends Component {
 // set the inital state of the map properties...????
@@ -161,7 +162,7 @@ class App extends Component {
 
       <div className="App">
       <div>
-        <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel} ATTRIBUTE   </Button>
+        <Button class="customButton" color="danger" onClick={this.toggle}>{this.props.buttonLabel} ATTRIBUTE   </Button>
           <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
             <ModalHeader toggle={this.toggle}>Tell Us About this Park</ModalHeader>
                 <ModalBody>
@@ -199,9 +200,9 @@ Rating: <select  type="String" name='Rating' value={this.state.Rating} onChange=
           </Modal>
     </div>
 
-        <Button onClick={this.removePolygons} value="Remove DB Overlay"> remove </Button>
-        <Button onClick={this.showPolygons} value="Show DB Overlay"> Show </Button>
-          <Button onClick={this.showPolygons} value="Show Basketball Overlay"> Show Basketball </Button>
+        <Button class="customButton" onClick={this.removePolygons} value="Remove DB Overlay"> remove </Button>
+        <Button class="customButton" onClick={this.showPolygons} value="Show DB Overlay"> Show </Button>
+          <Button class="customButton" onClick={this.showPolygons} value="Show Basketball Overlay"> Show Basketball </Button>
         <Map
           polygons={this.state.polygons}
 

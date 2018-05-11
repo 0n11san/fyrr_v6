@@ -1,0 +1,17 @@
+#Identify {
+ margin: 10px;
+}
+
+#form-portions {
+ display: grid;
+}
+
+#modal-title {
+ display: grid;
+ grid-template-columns: 5fr 1fr;
+ text-align: center;
+}
+
+.customButton {
+  color: black;
+}
