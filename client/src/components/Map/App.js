@@ -5,6 +5,7 @@ import qs from 'qs';
 // import ReactDOM from 'react-dom';
 import axios from 'axios';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import './App.css';
 
 class App extends Component {
 
@@ -90,17 +91,35 @@ class App extends Component {
 
       <div className="App">
       <div>
-        <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel} Use   </Button>
+        <Button id="Identify" color="danger" onClick={this.toggle}>{this.props.buttonLabel} Identify   </Button>
           <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-            <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+            <ModalHeader id="modal-title" toggle={this.toggle}>Attributes</ModalHeader>
                 <ModalBody>
                 <form onSubmit={this.handleSubmit}>
-                    <label>
+                    <label id="form-portions">
 
-                      Parkname: <input type="text" name='Parkname' value={this.state.Parkname} onChange={this.handleChange} />
-                      polygonType: <input type="text" name='polygonType'value={this.state.polygonType} onChange={this.handleChange} />
-                      Comments: <input type="text" name='Comments'value={this.state.Comments} onChange={this.handleChange} />
-                      Rating: <input type="text" name='Rating'value={this.state.Rating} onChange={this.handleChange} />
+                      Park/Resource Name: <input type="string" name='Parkname' value={this.state.Parkname} onChange={this.handleChange} />
+
+                      Resource Type: <select name="polygonType: ">
+                        <input type="string" name='polygonType'value={this.state.polygonType} onChange={this.handleChange} />
+                        <option value="Dog Park">Dog Park</option>
+                        <option value="Tennis">Tennis Court</option>
+                        <option value="Baseball Field">Baseball Field</option>
+                        <option value="Basketball Court">Basketball Court</option>
+                        <option value="Child Play Area">Child Play Area</option>
+                        <option value="Other">Other</option>
+                      </select>
+
+                      Comments: <input type="string" name='Comments'value={this.state.Comments} onChange={this.handleChange} />
+
+                      Rating: <select name="Rating: ">
+                        <input type="Number" name='Rating'value={this.state.Rating} onChange={this.handleChange} />
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
 
                     </label>
                     <input type="submit" onSubmit={this.handleSubmit} value="Submit" />

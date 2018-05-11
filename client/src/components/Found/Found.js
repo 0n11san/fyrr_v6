@@ -19,7 +19,7 @@ class Found extends Component {
                 <Header/>
                 <Container>
                     <div className="jumbotron">
-                        <h1>Share a Rec Resource You Found</h1>
+                        <h1>Find & Share Rec Resources</h1>
                         <hr className="hr"/>
                         {/* <Search/> */}
 

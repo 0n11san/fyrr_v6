@@ -41,7 +41,7 @@ class Header extends Component {
                     <div className="brand-name navbar-link">FYRR</div>
                 </span>
                 {/*dropdown menu*/}
-                <div className="navbar-nav">
+                <div className="navbar-nav1">
                     <div className="dropdown-icon navbar-link" onClick={this.showLinks}>&#9776;
                         <div className="dropdown-content" style={{display: (this.state.show) ? 'inline-block' : 'none'}}>
                             <Link to="/user" className="navbar-link navbar-item dropdown-item">User</Link>

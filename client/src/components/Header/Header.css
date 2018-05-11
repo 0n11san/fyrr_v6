@@ -25,7 +25,7 @@
     float: left;
 }
 
-.navbar-nav {
+.navbar-nav1 {
     grid-column-start: headercol6;
     grid-column-end: headercol11;
     grid-row-start: headerrow1;
@@ -35,6 +35,7 @@
 
 .navbar-group {
     list-style-type: none;
+    margin-top: 30px;
 }
 .navbar-item {
     float: right;
@@ -62,7 +63,7 @@
     display: none;
     position: absolute;
     top: 100%;
-    right: 0;
+    right: -16px;
     background-color: #143A52;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     padding: 12px 16px;
@@ -80,7 +81,7 @@
 }
 
 #logoutBtn {
-    margin-top: -25%;
+    margin-top: -5%;
     padding: 4px;
     background-color: #CDE3EB;
     color: #143A52;
@@ -103,7 +104,7 @@
         grid-column-end: headercol7;
         padding: 5px;
     }
-    .navbar-nav {
+    .navbar-nav1 {
         grid-column-start: headercol8;
         grid-column-end: headercol11;
     }
