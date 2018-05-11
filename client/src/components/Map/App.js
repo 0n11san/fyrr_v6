@@ -168,19 +168,28 @@ class App extends Component {
                 <form onSubmit={this.handleSubmit}>
                   <label>
 
-                  Pick your favorite La Croix flavor:
-                  <select value={this.state.value} onChange={this.handleChange}>
-                    <option value="grapefruit">Grapefruit</option>
-                    <option value="lime">Lime</option>
-                    <option value="coconut">Coconut</option>
-                    <option value="mango">Mango</option>
-                  </select>
-
 Parkname: <input type="String" name='Parkname' value={this.state.Parkname} onChange={this.handleChange} />
-polygonType: <input type="String" name='polygonType'value={this.state.polygonType} onChange={this.handleChange} />
-Comments: <input type="String" name='Comments'value={this.state.Comments} onChange={this.handleChange} />
-Rating: <input type="Number" name='Rating'value={this.state.Rating} onChange={this.handleChange} />
 
+polygonType: <select  type="String" name='polygonType' value={this.state.polygonType} onChange={this.handleChange}>
+              <option value="Dog Park">Dog Park </option>
+              <option value="Tennis">Tennis Court</option>
+              <option value="Baseball Field">Baseball Field</option>
+              <option value="Basketball Court">Basketball Court</option>
+              <option value="Child Play Area">Child Play Area</option>
+              <option value="Other">Other</option>
+            </select>
+
+Comments: <input type="String" name='Comments'value={this.state.Comments} onChange={this.handleChange} />
+
+{/*Rating: <input type="Number" name='Rating'value={this.state.Rating} onChange={this.handleChange} /> */}
+
+Rating: <select  type="String" name='Rating' value={this.state.Rating} onChange={this.handleChange}>
+              <option value="1">It sucks</option>
+              <option value="2">Meh</option>
+              <option value="3">OK</option>
+              <option value="4">Good</option>
+              <option value="5">Great!</option>
+            </select>
 
                   </label>
                     <input type="submit" onSubmit={this.handleSubmit} value="Submit" />
