@@ -22,39 +22,16 @@ const Map = compose(
                 var poly = polygon.getPath().getAt(i).toUrlValue(6);
                 polygonArray.push(poly);
                 }
-            // database.ref('userInfo/polygonArray').push(polygonArray);
               console.log(polygonArray);
-
               Data.polygonArray=polygonArray;
               console.log(Data);
-
+            //database.ref('userInfo/polygonArray').push(polygonArray); fire base link
             //console.log(polygon.getPath().getLength())
-
             // axios.post('/polygon', {polygonArray:polygonArray})
             //   .then( res => console.log(res))
             //   .catch( err => console.log(err));
 
     },
-
-    handleMarkerComplete: (marker) => {
-      var markerArray=[];
-      var locations = [];
-      var markers = locations.map(function(location, i) {
-        return new window.google.maps.Marker({
-
-        });
-      });
-      function addMarker(location) {
-        var marker = new window.google.maps.Marker({
-          position: location,
-          //map: map
-        });
-        //markerCluster.addMarker(marker);
-        //database.ref('userInfo/clustermarkers').push(markers);
-      }
-
-      console.log(marker)
-    }
   })
 )
 
@@ -70,18 +47,18 @@ const Map = compose(
   <SearchBox
     ref={props.onSearchBoxMounted}
     bounds={props.bounds}
-    controlPosition={window.google.maps.ControlPosition.BOTTOM_LEFT}
+    controlPosition={window.google.maps.ControlPosition.TOP_RIGHT}
     onPlacesChanged={props.onPlacesChanged}
   >
     <input
       type="text"
-      placeholder="Customized your placeholder"
+      placeholder="Search"
       style={{
         boxSizing: `border-box`,
         border: `1px solid transparent`,
-        width: `240px`,
-        height: `32px`,
-        marginTop: `27px`,
+        width: `175px`,
+        height: `25px`,
+        marginTop: `15px`,
         padding: `0 12px`,
         borderRadius: `3px`,
         boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
@@ -104,8 +81,6 @@ const Map = compose(
             }
       }}
       onPolygonComplete={props.handlePolygonComplete}
-      onMarkerComplete={props.handleMarkerComplete}
-      onPolylineComplete={props.handlePolylineComplete}
     />
 
     {props.polygons.map((polygon, index) => {
@@ -124,20 +99,6 @@ const Map = compose(
       })
     }
 
-
-    <MarkerClusterer
-        onClick={props.onMarkerClustererClick}
-        averageCenter
-        enableRetinaIcons
-        gridSize={60}
-      >
-        {props.markers.map(marker => (
-          <Marker
-            key={marker.photo_id}
-            position={{ lat: marker.latitude, lng: marker.longitude }}
-          />
-        ))}
-      </MarkerClusterer>
   </GoogleMap>
 )
 
