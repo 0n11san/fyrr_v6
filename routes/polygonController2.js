@@ -16,11 +16,9 @@ exports.create_a_polygon = function(req, res) {
   console.log('create new')
   console.log(req.body)
   var new_polygon = new Polygon(req.body);
-  console.log('NEW POLYGON',  new_polygon)
   new_polygon.save(function(err, polygon) {
-    if (err){
+    if (err)
       res.send(err);
-    }
     res.json(polygon);
   });
 };
