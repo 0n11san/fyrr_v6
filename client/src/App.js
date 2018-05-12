@@ -33,7 +33,7 @@ const PublicRoute = ({component: Component, ...rest}) => {
         <Route
             exact
             {...rest}
-            render={(props) => (!isAuthenticated) ? <Component {...props} /> : <Redirect to={{pathname: '/user'}} /> }
+            render={(props) => (!isAuthenticated) ? <Component {...props} /> : <Redirect to={{pathname: '/assets'}} /> }
         />
     )
 };
