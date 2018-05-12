@@ -179,7 +179,7 @@ class App extends Component {
       <div>
         <Button id="Identify" color="danger" onClick={this.toggle}>{this.props.buttonLabel} Identify </Button>
           <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-            <ModalHeader id="modal-title" toggle={this.toggle}>Modal title</ModalHeader>
+            <ModalHeader id="modal-title" toggle={this.toggle}>Attribute</ModalHeader>
                 <ModalBody>
                 <form onSubmit={this.handleSubmit}>
                     <label id="form-portions">
@@ -217,8 +217,8 @@ class App extends Component {
           </Modal>
     </div>
 
-        <Button onClick={this.removePolygons} value="Remove DB Overlay"> remove </Button>
-        <Button onClick={this.showPolygons} value="Show DB Overlay"> remove </Button>
+        <Button onClick={this.removePolygons} value="Remove DB Overlay"> Hide </Button>
+        <Button onClick={this.showPolygons} value="Show DB Overlay"> Reveal </Button>
         <Map
           markers={this.state.markers}
           polygons={this.state.polygons}

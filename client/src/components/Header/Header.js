@@ -44,9 +44,9 @@ class Header extends Component {
                 <div className="navbar-nav">
                     <div className="dropdown-icon navbar-link" onClick={this.showLinks}>&#9776;
                         <div className="dropdown-content" style={{display: (this.state.show) ? 'inline-block' : 'none'}}>
-                            <Link to="/user" className="navbar-link navbar-item dropdown-item">User</Link>
+                            <Link to="/HowTo" className="navbar-link navbar-item dropdown-item">User</Link>
                             {/*<Link to="/find" className="navbar-link navbar-item dropdown-item">Find</Link>*/}
-                            <Link to="/found" className="navbar-link navbar-item dropdown-item">Found</Link>
+                            <Link to="/Assets" className="navbar-link navbar-item dropdown-item">Assets</Link>
                             <button className="btn btn-primary " id="logoutBtn" onClick={this.signOut}>Log Out</button>
                         </div>
                     </div>
@@ -58,13 +58,13 @@ class Header extends Component {
                             <button className="btn btn-primary " id="logoutBtn" onClick={this.signOut}>Log Out</button>
                         </li>
                         <li className="navbar-item">
-                            <Link className="navbar-link" to="/user">User</Link>
+                            <Link className="navbar-link" to="/HowTo">How To</Link>
                         </li>
                         {/*<li className="navbar-item">
                             <Link className="navbar-link" to="/find">Find</Link>
                         </li>*/}
                         <li className="navbar-item">
-                            <Link className="navbar-link" to="/found">Found</Link>
+                            <Link className="navbar-link" to="/Assets">Assets</Link>
                         </li>
                     </ul>
                 </div>

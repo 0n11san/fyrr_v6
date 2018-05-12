@@ -13,7 +13,7 @@ const Nopage = () => {
             <Container>
                 <div className="jumbotron text-center">
                     <img src={logo} alt="fyrr logo" id="biglogo"/>
-                    <h1>404 Page not found</h1>
+                    <h1>404 Page not Assets</h1>
                     <hr className="hr"/>
                     <p>Lets get you back on track.</p>
                     <p className="lead">

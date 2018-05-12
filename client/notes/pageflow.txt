@@ -2,4 +2,4 @@ title splash screen
    |             |
    |             | 
    v             v
-SEARCH/FIND   REPORT/FOUND
+SEARCH/FIND   REPORT/Assets

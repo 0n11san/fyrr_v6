@@ -4,12 +4,12 @@ import Container from '../Container/Container.js';
 // import {Link} from "react-router-dom";
 import Header from '../Header/Header.js';
 import Footer from '../Footer/Footer.js';
-import './Found.css';
+import './Assets.css';
 import Map from '../Map'
 // import Search from '../Search'
 
 // creates Meditation component to render to the page
-class Found extends Component {
+class Assets extends Component {
 
     render() {
 
@@ -19,7 +19,7 @@ class Found extends Component {
                 <Header/>
                 <Container>
                     <div className="jumbotron">
-                        <h1>Share a Rec Resource You Found</h1>
+                        <h1>Find & Share Rec Resources</h1>
                         <hr className="hr"/>
                         {/* <Search/> */}
 
@@ -39,5 +39,5 @@ class Found extends Component {
 }
 
 
-// exports Found for external use
-export default Found;
+// exports Assets for external use
+export default Assets;

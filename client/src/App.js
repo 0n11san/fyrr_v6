@@ -10,7 +10,7 @@ import User from './components/User/User.js';
 import Signin from './components/Signin/Signin.js';
 import Signup from './components/Signup/Signup.js';
 import Find from './components/Find/Find.js';
-import Found from './components/Found/Found.js';
+import Assets from './components/Assets/Assets.js';
 import Nopage from './components/Nopage/Nopage.js';
 import './App.css';
 
@@ -46,8 +46,8 @@ const App = (props) => (
         <PublicRoute exact path="/signup" component={Signup}/>
         <PublicRoute exact path="/signin" component={Signin}/>
         <PrivateRoute exact path="/find" component={Find}/>
-        <PrivateRoute exact path="/user" component={User}/>
-        <PrivateRoute exact path="/found" component={Found}/>
+        <PrivateRoute exact path="/HowTo" component={User}/>
+        <PrivateRoute exact path="/Assets" component={Assets}/>
         <Route component={Nopage}/>
         </Switch>
         </Router>

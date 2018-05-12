@@ -82,7 +82,7 @@ const verifyCookie = (req, res, next) => {
 
 };
 
-apiRouter.get('/user', verifyCookie, (req, res) => {
+apiRouter.get('/HowTo', verifyCookie, (req, res) => {
     res.json({msg: "Cookie verified"});
 });
 

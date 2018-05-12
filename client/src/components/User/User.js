@@ -16,6 +16,26 @@ class User extends Component {
                 <Wrapper>
                     <Header/>
                     <Container>
+                      <div id="instructions" className="jumbotron">
+                        <h1>Instructions: </h1>
+
+                        <ol>
+                        ~~~Find:~~~
+                          <li> Navigate to the "Assets" page</li>
+                          <li> Click inside the search window on the map and type your location or allow GPS to find you</li>
+                          <li> Toggle your search filters depending on what you are looking for (e.g. dog parks; tennis courts; playgrounds; etc)</li>
+                          <li></li>
+                        </ol>
+
+                        <ol>
+                        ~~~Share:~~~
+                          <li> Select the pologyon icon from the map</li>
+                          <li> Click at least 3 points on the map  to encircle the area in question</li>
+                          <li> Press the "Idenitfy" Button and fill in the associated info</li>
+                          <li>Your community can now search and find the asset you marked!</li>
+                        </ol>
+
+                      </div>
                     </Container>
                     <Footer/>
                 </Wrapper>

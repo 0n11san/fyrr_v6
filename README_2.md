@@ -1585,7 +1585,7 @@ The test command will force Jest to run tests once instead of launching the watc
 
 >  If you find yourself doing this often in development, please [file an issue](https://github.com/facebookincubator/create-react-app/issues/new) to tell us about your use case because we want to make watcher the best experience and are open to changing how it works to accommodate more workflows.
 
-The build command will check for linter warnings and fail if any are found.
+The build command will check for linter warnings and fail if any are Assets.
 
 ### Disabling jsdom
 
@@ -2228,13 +2228,13 @@ You can find instructions in [Deploying React with Zero Configuration](https://b
 
 Sometimes `npm run build` works locally but fails during deploy via Heroku. Following are the most common cases.
 
-##### "Module not found: Error: Cannot resolve 'file' or 'directory'"
+##### "Module not Assets: Error: Cannot resolve 'file' or 'directory'"
 
 If you get something like this:
 
 ```
 remote: Failed to create a production build. Reason:
-remote: Module not found: Error: Cannot resolve 'file' or 'directory'
+remote: Module not Assets: Error: Cannot resolve 'file' or 'directory'
 MyDirectory in /tmp/build_1234/src
 ```
 
