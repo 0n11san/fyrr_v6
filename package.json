@@ -9,7 +9,7 @@
     "concurrently": "^3.5.1",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.2",
-    "jsonwebtoken": "^8.1.0",
+    "jsonwebtoken": "^9.0.0",
     "moment": "^2.20.1",
     "mongoose": "^4.13.9",
     "morgan": "^1.9.0",
